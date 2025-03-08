@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #000;">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netflij</title>
+    <meta name="description" content="Neflij" />
+    <meta name="author" content="Eyal Daniel" />
+    <link rel="stylesheet" href="/static/css/fonts.css" />
+    <link rel="stylesheet" href="/static/css/control-style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+     
+     <script src="/static/thirdparty/jquery.min.js"></script>
+     <script src="/static/thirdparty/popper.min.js"></script>
+     <script src="/static/thirdparty/bootstrap.bundle.min.js"></script>
+     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <!-- React -->
+    <script src="/static/thirdparty/react.development.js"></script>
+    <script src="/static/thirdparty/react-dom.development.js"></script>
+    <script src="/static/thirdparty/babel.min.js"></script>
+    <script src="/static/thirdparty/jquery-3.2.1.slim.min.js"></script>
+
+    <script type="text/javascript" src="/static/js/admin.js"></script>
+  </head>
+  <body>
+    <header class="showcase">  
+      <div class="dim"></div>
+                    <div class="showcase-top">  
+                         <a href="/admin">
+                            <img src="/static/img/logo.svg" alt="" />  
+                         </a>
+                    </div>  
+     </header>  
+               <section class="tabs">  
+                    <div class="container edit">  
+                         <div id="addtab" class="tab-item tab-border">
+                              <p class="hide-sm">
+                                <i class="fa fa-edit"></i>  
+                                Edit Show
+                              </p>
+                         </div>  
+                    </div>  
+               </section>  
+               <section class="tab-content">  
+                    <div class="container">  
+                         <!-- Tab Content 2 -->  
+                         <div id="addtab-content" class="tab-content-item show">  
+                              {% csrf_token %}
+                              <div class="addtab-content-top">  
+                                   <p class="text-lg">
+                                        Add a new <i>Meme Show</i> to the list
+                                   </p>  
+                                   <div align="center">
+                                        <a href="#" style="margin-bottom: 10px; width: 100%" class="btn btn-lg" onclick="addShow('{{ show.uid }}')">Save</a>  
+                                        <a href="#" style="width: 100%" class="btn btn-lg" onclick="removeShow('{{ show.uid }}')">Remove</a>  
+                                   </div>
+                              </div>  
+                              <div class="addtab-content-bottom">  
+                                   <div>  
+                                        <div class="the-box" ondrop="onDrop(this, event)" ondragover="dragging(this, event)" ondragleave="dragLeft(this)">
+                                          <img src="/static/shows/{{ show.uid }}/background" id="backgroundImage"/>
+                                        </div>
+                                        <p class="text-md">  
+                                             Background Image
+                                        </p>  
+                                        <p class="text-dark">  
+                                             This will be the large background image of the show 
+                                        </p>  
+                                   </div>  
+                                   <div>  
+                                        <div class="the-box" ondrop="onDrop(this, event)" ondragover="dragging(this, event)" ondragleave="dragLeft(this)">
+                                          <img src="/static/shows/{{ show.uid }}/logo.svg" onerror='this.src=`/static/shows/{{ show.uid }}/logo`' id="logoImage"/>
+                                        </div>
+                                        <p class="text-md">  
+                                             Logo Image
+                                        </p>  
+                                        <p class="text-dark">  
+                                             A small logo that will be placed on the bottom-left corner
+                                        </p>  
+                                   </div>  
+                                   <div>  
+                                        {% if show.approved %}
+                                             <input type="checkbox" checked data-toggle="toggle" id="approved"/>
+                                        {% else %}
+                                             <input type="checkbox" data-toggle="toggle" id="approved"/>
+                                        {% endif %}
+                                        <br/>
+                                        <br/>
+                                        <input type="text" id="title" value='{{ show.name }}' name="title" placeholder="Title">
+                                        <input type="text" id="genres" value='{{ show.genres }}' name="genres" placeholder="Genres (comma seperated)">
+                                        <input type="text" id="announcement" value='{{ show.announcement }}' name="announcement" placeholder="Announcement">
+                                        <br/>
+                                        <textarea id="description" name="description" placeholder="Description">{{ show.description }}</textarea>
+                                        <p class="text-dark">Title and Description<br/>* Leave description blank to hide it </p>
+                                   </div>  
+                              </div>  
+                         </div>  
+                    </div>  
+               </section>  
+  <!-- </div> -->
+
+  </body>
+</html>

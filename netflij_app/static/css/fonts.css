@@ -1,0 +1,19 @@
+@font-face {
+	font-family: "NetflixSans Light";;
+	src: url("/static/fonts/NetflixSans-Light.woff2") format("woff");
+}
+
+@font-face {
+	font-family: "NetflixSans Bold";
+	src: url("/static/fonts/NetflixSans-Bold.woff2") format("woff");
+}
+
+@font-face {
+	font-family: "NetflixSans Regular";
+	src: url("/static/fonts/NetflixSans-Regular.woff2") format("woff");
+}
+
+@font-face {
+	font-family: "NetflixSans Medium";
+	src: url("/static/fonts/NetflixSans-Medium.woff2") format("woff");
+}

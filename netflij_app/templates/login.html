@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #000;">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netflij</title>
+    <meta name="description" content="Neflij" />
+    <meta name="author" content="Eyal Daniel" />
+    <link rel="stylesheet" href="/static/css/fonts.css" />
+    <link rel="stylesheet" href="/static/css/control-style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- React -->
+    <script src="/static/thirdparty/react.development.js"></script>
+    <script src="/static/thirdparty/react-dom.development.js"></script>
+    <script src="/static/thirdparty/babel.min.js"></script>
+    <script src="/static/thirdparty/jquery-3.2.1.slim.min.js"></script>
+  </head>
+  <body>
+    <header class="showcase">  
+      <div class="dim"></div>
+                    <div class="showcase-top">  
+                         <a href="/">
+                            <img src="/static/img/logo.svg" alt="" />  
+                         </a>
+                    </div>  
+     </header>  
+               <section class="tabs">  
+                    <div class="container edit">  
+                         <div id="addtab" class="tab-item tab-border">
+                              <p class="hide-sm">
+                                <i class="fa fa-edit"></i>  
+                                Login
+                              </p>
+                         </div>  
+                    </div>  
+               </section>  
+               <section class="tab-content">  
+                    <div class="container">  
+                         <!-- Tab Content 2 -->  
+                         <div id="addtab-content" class="tab-content-item show">  
+                               <form id="loginForm" method="POST">  
+                                    {% csrf_token %}
+                                    <input type="text" id="username" name="username" placeholder="Username">
+                                    <input type="text" id="password" name="password" placeholder="Password">
+                               </form>  
+                               <div align="center">
+                                    <a href="#" style="margin-bottom: 10px; width: 100%" class="btn btn-lg" onclick="loginForm.submit()">Login</a>
+                               </div>
+                         </div>  
+                    </div>  
+               </section>  
+  <!-- </div> -->
+
+  </body>
+</html>
